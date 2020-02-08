@@ -153,6 +153,15 @@ Arrays.sort(res);
 			}
 			
 		}
+		int sum1=0,sum2=0;
+		for(int i=0;i<6;i++)
+		{
+			sum1+=sorted_price[i];
+		    sum2+=sorted_weight[i];
+		}
+		System.out.println("*******************************************");
+		System.out.println(" Total-Price    "+sum2+"grams        "+sum1);
+		System.out.println("*******************************************");
 	}
 
 }
