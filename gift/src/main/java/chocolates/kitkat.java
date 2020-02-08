@@ -1,10 +1,10 @@
 package chocolates;
 
 public class kitkat extends chocolate {
-	public int weight()
+	public int weight(int x)
 	{
 	int weight=90;
-	return weight;
+	return weight*x;
 	}
 	public int price(int x)
 	{
