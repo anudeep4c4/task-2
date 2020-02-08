@@ -2,10 +2,10 @@ package sweets;
 
 public class halva extends sweet
 {
-	public int weight()
+	public int weight(int x)
 	{
 		int weight=150;
-		return weight;
+		return weight*x;
 	}
 	public int price(int x)
 	{
