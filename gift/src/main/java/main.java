@@ -23,79 +23,53 @@ Arrays.sort(res);
 	public static void main(String[] args)
 	{
 		Scanner sc=new Scanner(System.in);
-		String[] chocolates={"Dairy Milk","Kit_Kat","Snickers"};
-		int [] chocolates_weight={150,90,50};
-		String[] sweets={"Barfi","Halva","Laddu"};
-		int [] sweets_weight={200,150,100};
-		System.out.println("****Menu****	WEIGHTS");
-		for(int i=0;i<3;i++)
-		{
-			System.out.printf((i+1)+")"+chocolates[i]+"\t"+chocolates_weight[i]+"\n\n");
-		}
-		int []qty_chocolates=new int[3];
-		for (int i=0;i<3;i++)
-		{
-			System.out.printf("Enter the quantity of "+chocolates[i]+"::--->");
-			qty_chocolates[i]=sc.nextInt();
-		}
-        System.out.println("****Menu****	WEIGHTS");
-		for(int i=0;i<3;i++)
-		{
-			System.out.printf((i+1)+")"+sweets[i]+"\t\t"+sweets_weight[i]+"\n\n");
-		}
-		int []qty_sweets=new int[3];
-		for (int i=0;i<3;i++)
-		{
-			System.out.printf("Enter the quantity of "+sweets[i]+"::--->");
-			qty_sweets[i]=sc.nextInt();
-		}
 		String[] Merge= {"Diary Milk","Kit-Kat    ","Snickers","Barfi    ","Halva    ","Laddu    "};
-		int[] choco_weight =new int[3];
-		int[] sweet_weight = new int[3];
-		int[] choco_price = new int[3];
-		int[] sweet_price = new int[3];
-		int[] sorted_weight=new int[6];
-		int[] sorted_price =new int[6];
+		int[] Merge_weight= {150,90,50,200,150,100};
+		System.out.println("****Menu****	WEIGHTS");
+		for(int i=0;i<6;i++)
+		{
+			System.out.printf((i+1)+")"+Merge[i]+"\t"+Merge_weight[i]+"\n\n");
+		}
+		int []qty=new int[6];
+		for (int i=0;i<6;i++)
+		{
+			System.out.printf("Enter the quantity of "+Merge[i]+"::--->");
+			qty[i]=sc.nextInt();
+		}
+		int[] weight =new int[6];
+		int[] price = new int[6];
 		dairymilk dm = new dairymilk();
 		kitkat k=new kitkat();
 		snickers s=new snickers();
 		barfi b=new barfi();
 		halva h=new halva();
 		laddu l=new laddu();
-		for(int j=0;j<3;j++)
+		for(int j=0;j<6;j++)
 		{
 			switch(j)
 			{
-			case 0 : choco_weight[j] = dm.weight();
-					 choco_price[j] = dm.price(qty_chocolates[j]);
+			case 0 : weight[j] = dm.weight();
+					 price[j] = dm.price(qty[j]);
 					 break;
-			case 1:  choco_weight[j] = k.weight();
-			 		 choco_price[j] = k.price(qty_chocolates[j]);
+			case 1:  weight[j] = k.weight();
+			 		 price[j] = k.price(qty[j]);
 			 		 break;
-			case 2:	 choco_weight[j] = s.weight();
-			 		 choco_price[j] = s.price(qty_chocolates[j]);
+			case 2:	 weight[j] = s.weight();
+			 		 price[j] = s.price(qty[j]);
+			 		 break;
+			case 3 : weight[j] = b.weight();
+					 price[j] = b.price(qty[j]);
+					 break;
+			case 4:  weight[j] = h.weight();
+			 		 price[j] = h.price(qty[j]);
+			 		 break;
+			case 5:	 weight[j] = l.weight();
+			 		 price[j] = l.price(qty[j]);
 			 		 break;
 			 }
 		}
-		for(int j=0;j<3;j++)
-		{
-			switch(j)
-			{
-			case 0 : sweet_weight[j] = b.weight();
-					 sweet_price[j] = b.price(qty_chocolates[j]);
-					 break;
-			case 1:  sweet_weight[j] = h.weight();
-			 		 sweet_price[j] = h.price(qty_chocolates[j]);
-			 		 break;
-			case 2:	 sweet_weight[j] = l.weight();
-			 		 sweet_price[j] = l.price(qty_chocolates[j]);
-			 		 break;
-			 }
-		}
-		for(int i=0;i<3;i++)
-			System.out.println(choco_weight[i]);
-		sortedMerge(choco_weight,sweet_weight, sorted_weight);
-		sortedMerge(choco_price,sweet_price,sorted_price);
+		for(int i=0;i<6;i++)
+			System.out.println(weight[i]+"     "+price[i]);
 		
 		System.out.println("Choose the option in which you want to sort\n1.)Based On WEIGHT\n2.)Based On PRICE");
 		int n=sc.nextInt();
@@ -105,14 +79,14 @@ Arrays.sort(res);
 			{
 				for(int j=0;j<6;j++)
 				{
-					if(sorted_weight[i]>sorted_weight[j])
+					if(weight[i]>weight[j])
 					{
-						int u1=sorted_weight[i];
-						sorted_weight[i]=sorted_weight[j];
-						sorted_weight[j]=u1;
-						int u3=sorted_price[i];
-						sorted_price[i]=sorted_price[j];
-						sorted_price[j]=u3;
+						int u1=weight[i];
+						weight[i]=weight[j];
+						weight[j]=u1;
+						int u3=price[i];
+						price[i]=price[j];
+						price[j]=u3;
 						String u2=Merge[i];
 						Merge[i]=Merge[j];
 						Merge[j]=u2;
@@ -122,7 +96,7 @@ Arrays.sort(res);
 			System.out.println("****MENU****	WEIGHTS		PRICE");
 			for(int i=0;i<6;i++)
 			{
-				System.out.printf(Merge[i]+"\t"+sorted_weight[i]+"\t\t"+sorted_price[i]+"\n");
+				System.out.printf(Merge[i]+"\t"+weight[i]+"\t\t"+price[i]+"\n");
 			}
 		}
 		else if(n==0)
@@ -131,14 +105,14 @@ Arrays.sort(res);
 			{
 				for(int j=0;j<6;j++)
 				{
-					if(sorted_price[i]>sorted_price[j])
+					if(price[i]>price[j])
 					{
-						int u1=sorted_price[i];
-						sorted_price[i]=sorted_price[j];
-						sorted_price[j]=u1;
-						int u3=sorted_weight[i];
-						sorted_weight[i]=sorted_weight[j];
-						sorted_weight[j]=u3;
+						int u1=price[i];
+						price[i]=price[j];
+						price[j]=u1;
+						int u3=weight[i];
+						weight[i]=weight[j];
+						weight[j]=u3;
 						String u2=Merge[i];
 						Merge[i]=Merge[j];
 						Merge[j]=u2;
@@ -146,22 +120,23 @@ Arrays.sort(res);
 				}
 			}
 			
-			System.out.println("****MENU****	WEIGHTS		PRICE");
+			System.out.println("****MENU****	WEIGHT		PRICE");
 			for(int i=0;i<6;i++)
 			{
-				System.out.printf(Merge[i]+"\t"+sorted_weight[i]+"\t\t"+sorted_price[i]+"\n");
+				System.out.printf(Merge[i]+"\t"+weight[i]+"\t\t"+price[i]+"\n");
 			}
 			
 		}
 		int sum1=0,sum2=0;
 		for(int i=0;i<6;i++)
 		{
-			sum1+=sorted_price[i];
-		    sum2+=sorted_weight[i];
+		    sum1+=price[i];
+		    sum2+=weight[i];
 		}
 		System.out.println("*******************************************");
 		System.out.println(" Total-Price    "+sum2+"grams        "+sum1);
 		System.out.println("*******************************************");
+		
 	}
 
 }
