@@ -1,10 +1,10 @@
 package sweets;
 
 public class laddu extends sweet {
-	public int weight()
+	public int weight(int x)
 	{
 		int weight=100;
-		return weight;
+		return weight*x;
 	}
 	public int price(int x)
 	{
