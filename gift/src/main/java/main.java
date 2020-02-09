@@ -2,33 +2,16 @@ import  chocolates.*;
 import sweets.*;
 import java.util.*;
 public class main {
-	public static void sortedMerge(int a[], int b[],  int res[]) 
-{ 
-int i = 0, j = 0, k = 0; 
-while (i < 3) { 
-res[k] = a[i]; 
-i++; 
-k++; 
-} 
-
-while (j < 3) { 
-res[k] = b[j]; 
-j++; 
-k++; 
-} 
-
-Arrays.sort(res); 
-} 
-
 	public static void main(String[] args)
 	{
 		Scanner sc=new Scanner(System.in);
 		String[] Merge= {"Diary Milk","Kit-Kat    ","Snickers","Barfi    ","Halva    ","Laddu    "};
 		int[] Merge_weight= {150,90,50,200,150,100};
+		int[] Merge_price= {100,50,30,100,100,50};
 		System.out.println("****Menu****	WEIGHTS");
 		for(int i=0;i<6;i++)
 		{
-			System.out.printf((i+1)+")"+Merge[i]+"\t"+Merge_weight[i]+"\n\n");
+			System.out.printf((i+1)+")"+Merge[i]+"\t"+Merge_weight[i]+"\t\t"+Merge_price[i]"\n\n");
 		}
 		int []qty=new int[6];
 		for (int i=0;i<6;i++)
@@ -68,9 +51,6 @@ Arrays.sort(res);
 			 		 break;
 			 }
 		}
-		for(int i=0;i<6;i++)
-			System.out.println(weight[i]+"     "+price[i]);
-		
 		System.out.println("Choose the option in which you want to sort\n1.)Based On WEIGHT\n2.)Based On PRICE");
 		int n=sc.nextInt();
 		if(n==1)
