@@ -99,7 +99,7 @@ Arrays.sort(res);
 				System.out.printf(Merge[i]+"\t"+weight[i]+"\t\t"+price[i]+"\n");
 			}
 		}
-		else if(n==0)
+		else if(n==2)
 		{
 			for(int i=0;i<6;i++)
 			{
